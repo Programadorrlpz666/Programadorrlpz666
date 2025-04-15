@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lâmpada Interativa</title>       
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .lamp-container {
+            margin-top: 50px;
+        }
+        img {
+            width: 200px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <main>
+        <h1>Desafio da Lâmpada</h1>
+        <div>
+            <img src="Lampada off.jpg" alt="Lampada" id='lamp'>
+        </div>
+        <div>
+            <button id='turnOnOff'>Ligar</button>
+        </div>
+    </main>
+    </header>
+        
+    <script>
+        const turnOnOff = document.getElementById('turnOnOff');
+        const lamp = document.getElementById('lamp');
+
+        function isLampBroken() {
+            return lamp.src.indexOf('quebrada') > -1;
+        }
+
+        function lampOn() {
+            if (!isLampBroken()) {
+                lamp.src = 'Lamp on.jpg';
+            }
+        }
+
+        function lampOff() {
+            if (!isLampBroken()) {
+                lamp.src = 'Lampada off.jpg';
+            }
+        }
+
+        function breakLamp() {
+            lamp.src = 'quebrada.jpg';
+        }
+
+        function lampOnOff() {
+            if (turnOnOff.textContent == 'Ligar') {
+                lampOn();
+                turnOnOff.textContent = 'Desligar';
+            } else {
+                lampOff();
+                turnOnOff.textContent = 'Ligar';
+            }
+        }
+
+        turnOnOff.addEventListener('click', lampOnOff);
+        lamp.addEventListener('mouseover', lampOn);
+        lamp.addEventListener('mouseleave', lampOff);
+        lamp.addEventListener('dblclick', breakLamp);
+    </script>
+    
+</body>
+</html>
+
+ 

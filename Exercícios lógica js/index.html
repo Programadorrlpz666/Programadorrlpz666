@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercícios Lógica Javascript</h1>
+
+    <script>
+        //solicita ao usuário para inserir um número e verifica se ele é positivo, negativo ou zero
+
+        let numero = Number(prompt("Digite um número"));
+        let contador = 0;
+
+        if (numero > 0) {
+            console.log("O número é positivo.");
+        } else if (numero < 0) {
+            console.log("O número é negativo.");
+        } else {
+            console.log("O número é zero.");
+        }
+
+    </script>
+
+    <script>
+        // recebe nota do aluno e classifica
+
+        let nota = Number(prompt("Digite a nota do aluno:"));
+
+        if (nota >= 90 ) {
+            console.log("A");
+        } else if (nota >= 80 ) {
+            console.log("B");
+        }else if (nota >= 70 ) {
+            console.log("C");
+        } else if (nota >= 60 ) {
+            console.log("D");
+        } else {
+            console.log("F");
+        }
+
+    </script>
+
+    <script>
+        // exibir os números pares de 1 a 20 usando um loop for
+
+        for (let i = 2; i <= 20; i += 2) {
+        console.log(i);
+        }
+
+    </script>
+
+    <script>
+        // peça um número ao usuário usando loop while e contagem regressiva até zero
+
+        let numero1 = Number(prompt("Digite um número"));
+
+        while (numero1 > 0) {
+            numero1--
+            console.log(numero1);
+        }
+
+    </script>
+
+    
+<script> // peça número maior que 5
+    let numeroz = 0; 
+
+    do {
+        numeroz = Number(prompt("Digite um número maior que 5:")); 
+        if (numeroz <= 5) {
+            alert("Número inválido! Tente novamente.");
+        }
+    } while (numeroz <= 5);
+
+    alert(`Número válido inserido: ${numeroz}`); 
+
+</script>
+
+<script> // aceite apenas números maiores que 5
+
+    let numero8 = 0
+
+    do {
+        numero8 = Number(prompt("Digite um número maior que 5:"));
+        if (numero8 <= 5) {
+            alert("Número inválido! Tente novamente.");
+        }
+    } while (numero8 <= 5);
+
+    alert(`Número válido inserido: ${numero}`);
+
+</script>
+
+<script> // Função ao quadrado
+
+    function calcularQuadrado(numero) {
+    return numero * numero; 
+    }
+
+    let numeros = [2,4,6,8,10];
+    let quadrado = numeros.map(calcularQuadrado);
+
+    console.log(quadrado);
+
+</script>
+
+<script> // Fatorial
+
+    function fatorial(n) {
+        if (n <= 1) {
+            return 1;
+        }
+        return n * fatorial (n-1);
+    }
+    console.log(fatorial(5))
+
+</script>
+
+<script> // o dobro de cada número
+    let numero2 = [5, 10, 15, 20, 25];
+
+    numero2.forEach(numero => {
+        console.log(numero * 2);
+    });
+
+</script>
+
+<script> // nomes
+
+    let nomes = ["Ana", "Bruno", "Carla", "Daniel"];
+
+    nomes.pop();
+    nomes.push("Eduardo");
+
+    console.log(nomes);
+
+</script>
+
+<script> // retorna o maior número
+
+    function encontrarMaiorNumero(numeros) {
+        return Math.max(...numeros);
+    }
+
+    let arrayNumeros1 = [10, 25, 47, 89, 3, 56];
+    console.log(encontrarMaiorNumero(arrayNumeros1));
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Veja uma imagem aleatória de cachorro</h1>
+    <div> id="imagem-container"</div>
+
+    <div>
+        <button onclick="buscarImagemAleatoriaDeCachorro()">Buscar outro</button>
+    </div>
+    <script>
+        //async function
+        //api
+        //then
+        //JSON
+        async function buscarImagemAleatoriaDeCachorro() {
+        try {
+            const resposta = await fetch("https://api.thedogapi.com/v1/images/search", {
+            headers: {
+            "x-api-key": ""
+            }
+        });
+
+        let dados = await resposta.json()
+        let imagem = dados[0].url
+        let id = dados[0].id
+
+        let div = document.getElementById("imagem-container")
+        div.innerHTML = `<img src=${imagem} alt="imagem de um cachorro aleatorio">
+        <p>${idk}</p>
+        `
+        } catch (erro) {
+        console.log("Ops,não conseguimos encontrar uma imagem",Erro)
+        }
+    }
+        buscarImagemAleatoriaDeCachorro();
+    </script>
+</body>
+</html>

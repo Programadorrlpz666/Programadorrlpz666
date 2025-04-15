@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios JAVA</title>
+</head>
+<body>
+    <h1>Exercícios JAVA</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora magni id repellat sit quis, cupiditate consequatur expedita voluptatem? Veniam magni quam vero culpa non pariatur ab, enim quod natus alias.</p>
+
+    <script>
+
+        let idade =Number(prompt("Digite sua idade"));
+
+        if (idade >= 18){
+            alert("Maior de idade")
+        } else if (idade >= 16) {
+            alert("Quase lá")
+        } else {
+            alert("Menor de idade")
+        }
+    </script>
+
+    <script>
+         <!--um programa que imprime os números de 1 a 10 utilizando um for. -->
+
+    for (let i = 1; i <= 10; i++) {
+        console.log(i);
+    }
+
+    </script>
+
+    <script>
+        <!--recebe um número e imprime até esse número-->
+        let numero = Number(prompt("Digite um número"));
+        let contador = 0;
+
+        while (contador <= numero) {
+            console.log(contador);
+            contador++;
+        }
+
+    </script>
+
+    <script>
+        <!--Imprimir "Hello World" 3 vezes-->
+
+        let=contador2 = 0;
+        do {
+            console.log("Hello World");
+            contador2++;
+        }
+        while (contador2 < 3);
+
+    </script>
+
+    <script>
+        <!--função dobrar-->
+
+        function dobrar (numero) {
+            return numero * 2;
+        }
+
+        console.log(dobrar(5));
+    </script>
+
+    <script>
+        <!--Par ou Impar-->
+        function parOuImpar(numero) {
+            if (numero % 2 === 0) {
+                return "Par";
+            }
+
+            else {
+                return "Impar"
+            }
+        }
+        console.log(parOuImpar(7))
+        console.log(parOuImpar(10))
+
+    </script>
+
+    <script>
+        <!--Frutas com For each-->
+        let frutas = ["maçã", "banana", "uva", "laranja", "manga"]
+        frutas.forEach(function(fruta) {
+            console.log(fruta);
+        });
+
+    </script>
+
+    <script>
+        <!--modificar lista com array-->
+        let numeros = [10, 20, 30];
+
+        numeros.push(40);
+        numeros.shift();
+        console.log(numeros);
+
+    </script>
+
+    <script>
+        function somarArray(numeros) {
+            let soma = 0;
+            for (let i = 0; i < numeros.length; i++) {
+                soma = soma + numeros[i];
+            }
+            return soma;
+        }
+
+        console.log(somarArray([1,1,1]))  
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="header">Cadastro de Usuário</h2>
+        <form id="cadastroForm" class="form">
+            <div class="form-content">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" placeholder="Digite seu nome" required>
+            </div>
+            <div class="form-content">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Digite seu email" required>
+            </div>
+            <div class="form-content">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Digite sua senha" required>
+            </div>
+            <div class="form-content">
+                <label for="confirmarsenha">Confirmar Senha</label>
+                <input type="password" id="confirmarsenha" placeholder="Confirme sua senha" required>
+            </div>
+            <div class="form-content">
+                <label for="dataNascimento">Data de Nascimento</label>
+                <input type="date" id="dataNascimento" required>
+            </div>
+            <div class="form-content">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" placeholder="Digite seu CPF" maxlength="11" required>
+            </div>
+            <p class="error" id="erro"></p>
+            <button type="submit" id="cadastrar">Cadastrar</button>
+            <button type="button" id="remover">Remover Cadastro</button>
+        </form>
+        <br>
+        <h3>Último Cadastro:</h3>
+        <p id="ultimoCadastro"></p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

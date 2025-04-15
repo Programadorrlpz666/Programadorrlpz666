@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.logo-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 100px;
+}
+
+.logo-container h2{
+    font-weight: bold;
+}
+
+.logo-container h5{
+    font-weight: 100;
+}
+
+.menu-container{
+background-color: gray;
+height: 80px;
+width: 100%;
+}
+
+.menu-container nav{
+display: flex;
+height: 100%;
+justify-content: space-around;
+align-items: center;
+}
+
+.menu-container nav{
+text-decoration: none;
+color: white;
+}
