@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog API - Exemplo com Fetch</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    img {
+      margin-top: 20px;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🐶 Veja uma imagem aleatória de cachorro</h1>
+  <div id="imagem-container"></div>
+  <button onclick="buscarImagemAleatoriaDeCachorro()">Buscar outro 🐾</button>
+
+  <script>
+    async function buscarImagemAleatoriaDeCachorro() {
+      try {
+        const resposta = await fetch("https://api.thedogapi.com/v1/images/search", {
+          headers: {
+            "x-api-key": "live_vvsVV0P5dTjUnw8YvRk4eguWpS15qs9YxRgRoZuDPDUqlI0mQr3I76tUjxrqjTb6"
+          }
+        });
+
+        const dados = await resposta.json();
+        const imagem = dados[0].url;
+
+        const container = document.getElementById("imagem-container");
+        container.innerHTML = `<img src="${imagem}" alt="Cachorro fofo">`;
+
+      } catch (erro) {
+        console.error("Erro ao buscar imagem:", erro);
+        alert("Ops! Não conseguimos carregar uma imagem no momento.");
+      }
+    }
+
+    // Carrega a primeira imagem automaticamente ao abrir a página
+    buscarImagemAleatoriaDeCachorro();
+  </script>
+
+</body>
+</html>

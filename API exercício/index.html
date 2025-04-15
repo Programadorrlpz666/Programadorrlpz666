@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ricky and Morty</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;s
+      padding: 400px;
+      background: url('https://cloud.estacaonerd.com/wp-content/uploads/2019/12/22080915/4avZU-7P4FaXUD6OE2esplNFwYttOa0E-_DCL2CxkdY.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      filter: brightness(40px);
+    }
+
+    .card {
+      background-color: #4e426eda; 
+      padding: 20px;
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    img {
+      margin-top: 20px;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .info {
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .info p {
+      margin: 5px 0;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #0c2637;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+    
+  <div style="display: flex;justify-content: center;align-items: center;">
+    <h1 style="color:white;background-color: #4e426eda; padding: 12px; border-radius: 8px;">Veja os personagens</h1>
+  </div>
+  
+  <div class="card">
+    <div id="imagem-container"></div>
+    <div id="info-container" class="info"></div>
+    <button onclick="buscarImagemRickyandMorty()">Buscar outro</button>
+  </div>
+
+  <script>
+    async function buscarImagemRickyandMorty() {
+      try {
+        const resposta = await fetch("https://rickandmortyapi.com/api/character/");
+        const dados = await resposta.json();
+
+        if (!dados.results || dados.results.length === 0) {
+          throw new Error('Nenhum personagem encontrado.');
+        }
+
+        const personagem = dados.results[Math.floor(Math.random() * dados.results.length)];
+
+        const container = document.getElementById("imagem-container");
+        container.innerHTML = `<img src="${personagem.image}" alt="Personagem">`;
+
+        const infoContainer = document.getElementById("info-container");
+        infoContainer.innerHTML = `
+          <p><strong>Nome:</strong> ${personagem.name}</p>
+          <p>Gênero: ${personagem.gender}</p>
+          <p>ID: ${personagem.id}</p>
+          <p>Localização: ${personagem.location.name}</p>
+          <p>Espécie: ${personagem.species}</p>
+        `;
+
+      } catch (erro) {
+        console.error("Erro ao buscar imagem:", erro);
+        alert("Ops! Não conseguimos carregar uma imagem no momento.");
+      }
+    }
+
+    window.onload = buscarImagemRickyandMorty;
+  </script>
+
+</body>
+</html>

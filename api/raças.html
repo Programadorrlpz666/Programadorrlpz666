@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Raças de Cachorro - The Dog API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .raça-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 280px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🐶 Raças de Cachorro</h1>
+  <div id="container" class="raça-container"></div>
+
+  <script>
+    async function carregarRacas() {
+      try {
+        const resposta = await fetch("https://api.thedogapi.com/v1/breeds", {
+          headers: {
+            "x-api-key": "live_vvsVV0P5dTjUnw8YvRk4eguWpS15qs9YxRgRoZuDPDUqlI0mQr3I76tUjxrqjTb6"
+          }
+        });
+
+        const racas = await resposta.json();
+        const container = document.getElementById("container");
+
+        racas.slice(0, 12).forEach(raca => {
+          const card = document.createElement("div");
+          card.className = "card";
+
+          card.innerHTML = `
+            <img src="${raca.image?.url || 'https://via.placeholder.com/300x200?text=Sem+Imagem'}" alt="${raca.name}">
+            <h3>${raca.name}</h3>
+            <p><strong>Origem:</strong> ${raca.origin || "Desconhecida"}</p>
+            <p><strong>Expectativa de vida:</strong> ${raca.life_span}</p>
+            <p><strong>Temperamento:</strong> ${raca.temperament || "Não informado"}</p>
+            <p><strong>Peso:</strong> ${raca.weight.metric} kg</p>
+            <p><strong>Altura:</strong> ${raca.height.metric} cm</p>
+          `;
+
+          container.appendChild(card);
+        });
+
+      } catch (erro) {
+        console.error("Erro ao carregar raças:", erro);
+        alert("Erro ao carregar raças.");
+      }
+    }
+
+    carregarRacas();
+  </script>
+
+</body>
+</html>
